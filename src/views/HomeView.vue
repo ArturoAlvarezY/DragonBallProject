@@ -1,9 +1,17 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { userCharacters } from '@/stores/characters';
+import { ref } from 'vue';
+
+
+const characters = userCharacters()
+//const character = ref([])
+characters.get()
+//console.log(characters.get());
 </script>
 
 <template>
   <main>
     <TheWelcome />
+
   </main>
 </template>
