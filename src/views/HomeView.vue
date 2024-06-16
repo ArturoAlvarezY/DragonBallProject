@@ -1,17 +1,14 @@
 <script setup>
-import { userCharacters } from '@/stores/characters';
-import { ref } from 'vue';
+import { useCharacters } from '@/stores/CharactersStore';
 
+const characters = useCharacters()
+characters.setlistaCharacters()
 
-const characters = userCharacters()
-//const character = ref([])
-characters.get()
-//console.log(characters.get());
 </script>
 
 <template>
   <main>
     <TheWelcome />
-
+    {{ characters.getlistaCharacters.items[0] }}
   </main>
 </template>
