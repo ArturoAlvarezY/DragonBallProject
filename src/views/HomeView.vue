@@ -1,10 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { useCharacters } from '@/stores/CharactersStore';
 import Card from '../components/card/Card.vue'
+
+const characters = useCharacters()
+characters.setlistaCharacters()
+
+
 </script>
 
 <template>
   <main>
+    {{ characters.getlistaCharacters.items[0] }}
     <div class="row row-cols-1 row-cols-md-2 row-cols-md-2 g-4">
       <div class="col">
         <Card name="Goku" ki="10000" raze="Sajayin" description="Description"
