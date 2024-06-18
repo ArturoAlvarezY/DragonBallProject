@@ -10,10 +10,10 @@ export default class Repository {
   async get() {
     try {
       const response = await fetch(this.uri)
-      const data = await response. json ()
+      const data = await response.json()
       return data
     } catch (error) {
-    throw new Error('Error loading DragonBall API')
+      throw new Error('Error loading DragonBall API')
     }
   }
 }

@@ -1,21 +1,21 @@
 import Character from "../../models/Character.js"
-import Repository from "../../models/Repository.js"
 
 export default class DragonBallService {
     #repo
 
     constructor(repository) {
-        this.#repo = Repository
+        this.#repo = repository
     }
 
-    async getCharacter() {
-        const data = await this.#repo.getById('Character')
+    async getCharacters() {
+        const data = await this.#repo.get()
+        
 
-        const character = data.DragonBall.item.map((item) => {
+        const characters = data.items.map((item) => {
             return new Character(item.name, item.img, item.id, item.ki, item.race, item.description)
         })
 
-        return character
+        return characters
     }
 
     async getPlanets() {

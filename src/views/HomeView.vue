@@ -1,14 +1,39 @@
 <script setup>
-import { useCharacters } from '@/stores/CharactersStore';
+import DragonBallService from '@/components/core/apis/dragonBall/DragonBallService.js';
+import Repository from '@/components/core/models/Repository.js';
+import { ref } from 'vue';
 
-const characters = useCharacters()
-characters.setlistaCharacters()
+
+const repository = new Repository('https://dragonball-api.com/api/characters')
+const apiCharacters = new DragonBallService(repository)
+let listCharacters = ref([])
+
+async function setCharacters() {
+  const characters = await apiCharacters.getCharacters()
+  listCharacters.value = characters
+}
+
+console.log(listCharacters);
+
+setCharacters()
 
 </script>
 
 <template>
   <main>
-    <TheWelcome />
-    {{ characters.getlistaCharacters.items[0] }}
+    <ul v-if="listCharacters">
+      <li v-for="usuario in listCharacters" :key="usuario.id">
+        Nombre: {{ usuario.name }}
+        <br>
+        Max Ki: {{ usuario.ki }}
+        <br>
+        Raza: {{ usuario.race }}
+        <br>
+        descripcion: {{ usuario.description }}
+        <br>
+        imagen: {{ usuario.img }}
+        <br>
+      </li>
+    </ul>
   </main>
 </template>

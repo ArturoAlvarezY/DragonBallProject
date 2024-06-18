@@ -9,9 +9,8 @@ export const useCharacters = defineStore('characters', () => {
 
   const getlistaCharacters = computed(() => listaCharacters.value)
 
-  async function setlistaCharacters() {
-    const response = await fetch(uri)
-    listaCharacters.value = await response.json()
+  function setlistaCharacters(myarray) {
+    listaCharacters.value = myarray
   }
 
   return { listaCharacters, getlistaCharacters, setlistaCharacters}
