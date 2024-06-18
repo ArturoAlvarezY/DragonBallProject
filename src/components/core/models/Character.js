@@ -1,15 +1,15 @@
 export default class Character {
     image
     name
-    ki
+    maxKi
     race
     description
     id
 
-    constructor(id, name, ki, race, description, image) {
+    constructor(id, name, maxKi, race, description, image) {
         this.name = name
         this.image = image
-        this.ki = ki
+        this.maxKi = maxKi
         this.race = race
         this.description = description
         this.id = id

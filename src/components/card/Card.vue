@@ -4,7 +4,7 @@ defineProps({
         type: String,
         required: true
     },
-    ki: {
+    maxKi: {
         type: String,
         required: true
     },
@@ -24,16 +24,16 @@ defineProps({
 </script>
 
 <template>
-    <div class="card">
-        <img :src=image class="card-img-top" :alt=name>
+    <div class="card h-100" style="background-image: url(image);">
+        <img :src=image class="card-img-top mx-auto d-block" :alt=name>
         <div class="card-body">
-            <h5 class="card-title">Name: {{ name }}</h5>
-            <h5 class="card-title">Max Ki: {{ ki }}</h5>
-            <h5 class="card-title">Raze: {{ race }}</h5>
-            <h5 class="card-title">Description:</h5>
+            <p class="m-0 p-0">Name: {{ name }}</p>
+            <p class="m-0 p-0">Max Ki: {{ maxKi }}</p>
+            <p class="m-0 p-0">Raze: {{ race }}</p>
             <p class="card-text" hidden>{{ description }}</p>
         </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

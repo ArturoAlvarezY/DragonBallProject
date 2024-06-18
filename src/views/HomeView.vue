@@ -19,33 +19,10 @@ setCharacters()
 </script>
 
 <template>
-  <main>
-    <!--
-    <ul v-if="listCharacters">
-      <li v-for="usuario in listCharacters" :key="usuario.id">
-        Nombre: {{ usuario.name }}
-        <br>
-        Max Ki: {{ usuario.ki }}
-        <br>
-        Raza: {{ usuario.race }}
-        <br>
-        descripcion: {{ usuario.description }}
-        <br>
-        <img :src="usuario.image">
-        imagen:
-        <br>
-      </li>
-    </ul>-->
-    
-    <div v-if="listCharacters" class="row row-cols-1 row-cols-md-2 row-cols-md-2 g-4">
-      <div v-for="character in listCharacters" :key="character.id" class="col">
-        <Card :name=character.name 
-        :ki=character.ki
-        :race=character.race
-        :description=character.description
+  <div v-if="listCharacters" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div v-for="character in listCharacters" :key="character.id" class="col">
+      <Card :name=character.name :maxKi=character.maxKi :race=character.race :description=character.description
         :image=character.image />
-      </div>
     </div>
-  </main>
-
+  </div>
 </template>

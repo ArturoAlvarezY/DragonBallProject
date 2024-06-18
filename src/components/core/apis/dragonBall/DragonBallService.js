@@ -12,7 +12,7 @@ export default class DragonBallService {
         
 
         const characters = data.items.map((item) => {
-            return new Character(item.id, item.name, item.ki, item.race, item.description, item.image)
+            return new Character(item.id, item.name, item.maxKi, item.race, item.description, item.image)
         })
 
         return characters
