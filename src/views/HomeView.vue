@@ -1,4 +1,5 @@
 <script setup>
+import Card from '@/components/card/Card.vue';
 import DragonBallService from '@/components/core/apis/dragonBall/DragonBallService.js';
 import Repository from '@/components/core/models/Repository.js';
 import { ref } from 'vue';
@@ -13,22 +14,13 @@ async function setCharacters() {
   listCharacters.value = characters
 }
 
-console.log(listCharacters);
-
 setCharacters()
-
-
-import { useCharacters } from '@/stores/CharactersStore';
-import Card from '../components/card/Card.vue'
-
-const characters = useCharacters()
-characters.setlistCharacters()
-const listCharacters = characters.getlistCharacters.items
 
 </script>
 
 <template>
   <main>
+    <!--
     <ul v-if="listCharacters">
       <li v-for="usuario in listCharacters" :key="usuario.id">
         Nombre: {{ usuario.name }}
@@ -43,13 +35,17 @@ const listCharacters = characters.getlistCharacters.items
         imagen:
         <br>
       </li>
-    </ul>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-md-2 g-4">
-      <div v-for="(item, index) in listCharacters" class="col">
-        <Card name={{ item }} ki="10000" raze="Sajayin" description="Description"
-          image="https://imgs.search.brave.com/fWNyQ2cf5_ixlSYnGSOaqjQchtbyNWm584EdTBac3mc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nbWFydC5jb20v/ZmlsZXMvMi9Hb2t1/LVBORy1IRC5wbmc" />
+    </ul>-->
+    
+    <div v-if="listCharacters" class="row row-cols-1 row-cols-md-2 row-cols-md-2 g-4">
+      <div v-for="character in listCharacters" :key="character.id" class="col">
+        <Card :name=character.name 
+        :ki=character.ki
+        :race=character.race
+        :description=character.description
+        :image=character.image />
       </div>
     </div>
   </main>
-  
+
 </template>

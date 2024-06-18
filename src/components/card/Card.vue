@@ -8,7 +8,7 @@ defineProps({
         type: String,
         required: true
     },
-    raze: {
+    race: {
         type: String,
         required: true
     },
@@ -25,13 +25,13 @@ defineProps({
 
 <template>
     <div class="card">
-        <img src="" class="card-img-top" alt="...">
+        <img :src=image class="card-img-top" :alt=name>
         <div class="card-body">
             <h5 class="card-title">Name: {{ name }}</h5>
             <h5 class="card-title">Max Ki: {{ ki }}</h5>
-            <h5 class="card-title">Raze: {{ raze }}</h5>
+            <h5 class="card-title">Raze: {{ race }}</h5>
             <h5 class="card-title">Description:</h5>
-            <p class="card-text">{{ description }}</p>
+            <p class="card-text" hidden>{{ description }}</p>
         </div>
     </div>
 </template>
