@@ -24,9 +24,9 @@ defineProps({
 </script>
 
 <template>
-    <div class="card bg-card">
+    <div class="card bg-card position-relative">
         <img :src="image" class="image-size" :alt=name>
-        <div class="card-body">
+        <div class="position-absolute bottom-0 start-0 p-3">
             <p class="m-0 p-0"><strong>Name:</strong> {{ name }}</p>
             <p class="m-0 p-0"><strong>Max Ki:</strong> {{ maxKi }}</p>
             <p class="m-0 p-0"><strong>Raze:</strong> {{ race }}</p>
@@ -44,6 +44,13 @@ defineProps({
 }
 
 .image-size {
-    height: 450px;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    max-height: 400px;
+    object-position: center center;
+    object-fit: contain;
 }
 </style>
