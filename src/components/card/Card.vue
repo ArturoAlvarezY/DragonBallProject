@@ -24,16 +24,26 @@ defineProps({
 </script>
 
 <template>
-    <div class="card h-100" style="background-image: url(image);">
-        <img :src=image class="card-img-top mx-auto d-block" :alt=name>
+    <div class="card bg-card">
+        <img :src="image" class="image-size" :alt=name>
         <div class="card-body">
-            <p class="m-0 p-0">Name: {{ name }}</p>
-            <p class="m-0 p-0">Max Ki: {{ maxKi }}</p>
-            <p class="m-0 p-0">Raze: {{ race }}</p>
+            <p class="m-0 p-0"><strong>Name:</strong> {{ name }}</p>
+            <p class="m-0 p-0"><strong>Max Ki:</strong> {{ maxKi }}</p>
+            <p class="m-0 p-0"><strong>Raze:</strong> {{ race }}</p>
             <p class="card-text" hidden>{{ description }}</p>
         </div>
     </div>
 </template>
 
+
 <style scoped>
+.bg-card {
+    background-color: #A9AAAD;
+    height: 550px;
+    
+}
+
+.image-size {
+    height: 450px;
+}
 </style>

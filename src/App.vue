@@ -11,7 +11,4 @@ import NavBar from './components/nav/NavBar.vue';
 </template>
 
 <style scoped>
-.bg-orange {
-  background: #E94C1A !important;
-}
 </style>
