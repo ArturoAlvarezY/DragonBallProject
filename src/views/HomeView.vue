@@ -3,8 +3,8 @@ import DragonBallService from '@/components/core/apis/dragonBall/DragonBallServi
 import Repository from '@/components/core/models/Repository.js';
 import { ref } from 'vue';
 
-
-const repository = new Repository('https://dragonball-api.com/api/characters')
+const uri = import.meta.env.VITE_API_ENDPOINT_CHARACTERS
+const repository = new Repository(uri)
 const apiCharacters = new DragonBallService(repository)
 let listCharacters = ref([])
 
