@@ -17,6 +17,8 @@ console.log(listCharacters);
 
 setCharacters()
 
+
+
 </script>
 
 <template>
@@ -31,7 +33,8 @@ setCharacters()
         <br>
         descripcion: {{ usuario.description }}
         <br>
-        imagen: {{ usuario.img }}
+        <img :src="usuario.image">
+        imagen:
         <br>
       </li>
     </ul>

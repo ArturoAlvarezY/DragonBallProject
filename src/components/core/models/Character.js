@@ -1,41 +1,41 @@
 export default class Character {
-    img
-    name 
+    image
+    name
     ki
     race
     description
     id
 
-    constructor(name, img, ki, race, description, id) {
+    constructor(id, name, ki, race, description, image) {
         this.name = name
-        this.img = img
+        this.image = image
         this.ki = ki
         this.race = race
         this.description = description
         this.id = id
     }
 
-    getName () {
+    getName() {
         return this.name
     }
 
-    getImg () {
-        return this.img
+    getImge() {
+        return this.image
     }
 
-    getKi () {
+    getKi() {
         return this.ki
     }
 
-    getRace () {
+    getRace() {
         return this.race
     }
 
-    getDescription () {
+    getDescription() {
         return this.description
     }
 
-    getId () {
+    getId() {
         return this.id
     }
 }

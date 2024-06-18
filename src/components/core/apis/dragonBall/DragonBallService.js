@@ -12,7 +12,7 @@ export default class DragonBallService {
         
 
         const characters = data.items.map((item) => {
-            return new Character(item.name, item.img, item.id, item.ki, item.race, item.description)
+            return new Character(item.id, item.name, item.ki, item.race, item.description, item.image)
         })
 
         return characters
@@ -22,7 +22,7 @@ export default class DragonBallService {
         const data = await this.#repo.getById('Planets')
 
         const planets = data.DragonBall.item.map((item) => {
-            return new Planet(item.name, item.img, item.id, item.isDestroyed)
+            return new Planet(item.name, item.image, item.id, item.isDestroyed)
         })
 
         return planets
