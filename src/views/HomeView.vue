@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const uri = import.meta.env.VITE_API_ENDPOINT_CHARACTERS
 const repository = new Repository(uri)
 const apiCharacters = new DragonBallService(repository)
-let listCharacters = ref([])
+const listCharacters = ref([])
 
 async function setCharacters() {
   const characters = await apiCharacters.getCharacters()
