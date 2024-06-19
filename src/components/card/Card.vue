@@ -20,7 +20,7 @@ defineProps({
         type: String,
         required: true
     }
-})
+});
 </script>
 
 <template>
@@ -40,7 +40,9 @@ defineProps({
 .bg-card {
     background-color: #A9AAAD;
     height: 550px;
-    
+    background-image: v-bind(urlImage);
+    background-position: center;
+    background-size: cover;
 }
 
 .image-size {
