@@ -27,7 +27,7 @@ defineProps({
             <div class="card-img-overlay">
                 <div class="position-absolute bg-black rounded bottom-0 start-0 p-2 m-2">
                     <p class="m-0"><strong>Name:</strong> {{ name }}</p>
-                    <p class="m-0"><strong>Esta destruido:</strong> {{ isDestroyed ? 'Yes' : 'Not' }}</p>
+                    <p class="m-0"><strong>Is destroyed:</strong> {{ isDestroyed ? 'Yes' : 'Not' }}</p>
                     <p class="card-text" hidden>{{ description }}</p>
                 </div>
             </div>
