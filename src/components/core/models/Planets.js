@@ -1,30 +1,36 @@
 export default class Planets {
     img
-    name 
+    name
     id
     isDestroyed
+    description
 
-    constructor(name, img, isDestroyed, id) {
+    constructor(id, name, isDestroyed, description, img) {
         this.name = name
         this.img = img
         this.id = id
         this.isDestroyed = isDestroyed
+        this.description = description
     }
 
-    getName () {
+    getName() {
         return this.name
     }
 
-    getImg () {
+    getImg() {
         return this.img
     }
 
-    getIsDestroyed () {
+    getIsDestroyed() {
         return this.isDestroyed
     }
 
-    getId () {
+    getId() {
         return this.id
+    }
+
+    getDescription() {
+        return this.description
     }
 }
 

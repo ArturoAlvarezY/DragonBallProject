@@ -1,4 +1,5 @@
 import Character from "../../models/Character.js"
+import Planets from "../../models/Planets.js"
 
 export default class DragonBallService {
     #repo
@@ -19,10 +20,10 @@ export default class DragonBallService {
     }
 
     async getPlanets() {
-        const data = await this.#repo.getById('Planets')
+        const data = await this.#repo.get()
 
-        const planets = data.DragonBall.item.map((item) => {
-            return new Planet(item.name, item.image, item.id, item.isDestroyed)
+        const planets = data.items.map((item) => {
+            return new Planets(item.id, item.name, item.isDestroyed, item.description, item.image)
         })
 
         return planets
