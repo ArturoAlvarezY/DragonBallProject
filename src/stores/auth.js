@@ -4,13 +4,19 @@ import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore('auth', () => {
 
+    const userLogin = ref(
+        {
+            username: '',
+            isAuthenticated: false
+        }
+    )
+
     const user = ref(
         [{
             username: 'admin',
             password: 'admin',
-            isAuthenticated: false
         }]
     )
 
-    return { user }
+    return { user, userLogin}
 })

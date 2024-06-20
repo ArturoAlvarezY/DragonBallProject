@@ -26,13 +26,13 @@ const authStore = useAuthStore()
             <RouterLink to="/planets" class="nav-link">Planets</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/login" v-if="!authStore.user.isAuthenticated" class="nav-link">Login</RouterLink>
+            <RouterLink to="/login" v-if="!authStore.userLogin.isAuthenticated" class="nav-link">Login</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/register" v-if="!authStore.user.isAuthenticated" class="nav-link">Register</RouterLink>
+            <RouterLink to="/register" v-if="!authStore.userLogin.isAuthenticated" class="nav-link">Register</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/favorite" v-if="authStore.user.isAuthenticated" class="nav-link">Favorite</RouterLink>
+            <RouterLink to="/favorite" v-if="authStore.userLogin.isAuthenticated" class="nav-link">Favorite</RouterLink>
           </li>
         </ul>
         <form class="d-flex" role="search">
