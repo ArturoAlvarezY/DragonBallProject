@@ -17,7 +17,7 @@ function register() {
         alert('Fields cannot be empty')
     } else if (password.value == passwordRepeat.value) {
         if (!existUserInStorage(store.user, username.value)) {
-            store.user.push({ username: username.value, password: password.value, isAuthenticated: false })
+            store.user.push({ username: username.value, password: password.value })
             const redirectPath = route.query.redirect || '/login'
             router.push(redirectPath)
         } else alert('The user exists, try another name')
@@ -34,7 +34,7 @@ function isEmptyForm() {
 function existUserInStorage(myArray, datName) {
     let temp = false
     myArray.forEach(element => {
-        if (element.username == datName) 
+        if (element.username == datName)
             temp = true
     })
     return temp
