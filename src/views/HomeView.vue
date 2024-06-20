@@ -10,7 +10,7 @@ const apiCharacters = new DragonBallService(repository)
 const listCharacters = ref([])
 
 async function setCharacters() {
-  const characters = await apiCharacters.getCharacters()
+  const characters = await apiCharacters.getCharacters(8) //se puede pasar un filtro para poner la cantidad a mostrar
   listCharacters.value = characters
 }
 

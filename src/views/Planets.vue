@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const uri = import.meta.env.VITE_API_ENDPOINT_PLANETS
 const repository = new Repository(uri)
 const apiPlanets = new DragonBallService(repository)
-let listPlanets = ref([])
+const listPlanets = ref([])
 
 async function setPlanets() {
   const planets = await apiPlanets.getPlanets()
