@@ -5,33 +5,38 @@ import { useRoute, useRouter, RouterLink } from 'vue-router'
 
 const username = ref('')
 const password = ref('')
+const passwordRepeat = ref('')
 
 const route = useRoute()
 const router = useRouter()
 
 const store = useAuthStore()
 
-function login() {
-    if (username.value == store.user.username && password.value == store.user.password) {
-        store.user.isAuthenticated = true
-        const redirectPath = route.query.redirect || '/favorite'
-        router.push(redirectPath)
+function register() {
+    if (username.value == '' || password.value == '' || passwordRepeat.value == '') {
+        alert('Fields cannot be empty')
+    }else if(password.value == passwordRepeat.value) {
+        //store.user.isAuthenticated = true
+        //const redirectPath = route.query.redirect || '/favorite'
+        //router.push(redirectPath)
+    }else {
+        alert('Password does not match')
     }
 }
 </script>
 
 <template>
-    <form @submit.prevent="login" class="d-grid gap-2 mb-4 mt-4">
+    <form @submit.prevent="register" class="d-grid gap-2 mb-4 mt-4 needs-validation">
         <p class="h3 fw-normal inter-600 text-center"><strong>Register</strong></p>
-        <p class="text-black text-center"> Enter your name and password to login </p>
+        <p class="text-black text-center"> Enter your name and password</p>
         <div>
-            <input type="text" class="form-control mb-2" id="floatingInput" placeholder="Name" v-model="username">
-            <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password" v-model="password">
-            <input type="passwordRepeat" class="form-control" id="floatingpasswordRepeat" placeholder="PasswordRepeat" v-model="passwordRepeat">
+            <input type="text" class="form-control mb-2" id="floatingInput" placeholder="Name" v-model="username" required>
+            <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password" v-model="password" required>
+            <input type="password" class="form-control" id="floatingpasswordRepeat" placeholder="PasswordRepeat" v-model="passwordRepeat" required>
         </div>
-        <button class="btn btn-orange" type="submit">Sign up</button>
-        <p class="mt-3 text-muted text-center">If you don't have an account
-            <RouterLink to="/register" v-if="!store.user.isAuthenticated" class="text-orange">register</RouterLink>
+        <button class="btn btn-orange" type="submit">Register</button>
+        <p class="mt-3 text-muted text-center">If you have an account
+            <RouterLink to="/login" class="text-orange">login</RouterLink>
         </p>
     </form>
 </template>

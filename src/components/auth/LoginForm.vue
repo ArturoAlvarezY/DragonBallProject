@@ -30,7 +30,7 @@ function login() {
         </div>
         <button class="btn btn-orange" type="submit">Sign up</button>
         <p class="mt-3 text-muted text-center">If you don't have an account
-            <RouterLink to="/register" v-if="!store.user.isAuthenticated" class="text-orange">register</RouterLink>
+            <RouterLink to="/register" class="text-orange">register</RouterLink>
         </p>
     </form>
 </template>
