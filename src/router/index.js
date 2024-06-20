@@ -4,6 +4,7 @@ import LoginView from '@/views/guards/LoginView.vue'
 import { useAuthStore } from '@/stores/auth'
 import Planets from '@/views/Planets.vue'
 import Favorite from '@/views/guards/Favorite.vue'
+import RegisterView from '@/views/guards/RegisterView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
