@@ -38,6 +38,9 @@ const authStore = useAuthStore()
           <li class="nav-item">
             <RouterLink to="/favorite" v-if="authStore.userLogin.isAuthenticated" class="nav-link">Favorite</RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink to="/logout" v-if="authStore.userLogin.isAuthenticated" class="nav-link">Logout</RouterLink>
+          </li>
         </ul>
       </div>
     </div>
