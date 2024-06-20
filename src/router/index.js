@@ -24,6 +24,11 @@ const router = createRouter({
       component: LoginView
     },
     {
+      path: '/register',
+      name: 'register',
+      component: RegisterView
+    },
+    {
       path: '/favorite',
       name: 'favorite',
       component: Favorite,
