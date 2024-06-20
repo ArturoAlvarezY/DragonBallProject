@@ -7,17 +7,21 @@ const authStore = useAuthStore()
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md navbar-white bg-orange fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-white bg-orange fixed-top">
     <div class="container-fluid">
-      <RouterLink to="/" class="nav-link">
+      <RouterLink to="/" class="nav-link potta-one-regular">
         <img src="@/assets/logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        Fixed navbar
+        Dragon Boys
       </RouterLink>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
+        <form class="d-flex invisible" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
             <RouterLink to="/" class="nav-link">Home</RouterLink>
@@ -35,13 +39,13 @@ const authStore = useAuthStore()
             <RouterLink to="/favorite" v-if="authStore.userLogin.isAuthenticated" class="nav-link">Favorite</RouterLink>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
 </template>
 
-<style></style>
+<style scoped>
+.nav-link {
+  color: #fff;
+}
+</style>
