@@ -7,9 +7,19 @@ export const useAuthStore = defineStore('auth', () => {
         {
             username: 'admin',
             password: 'my-password',
-            isAuthtenticated: false
+            isAuthenticated: false
         }
-    )
+    );
 
-    return { user }
-})
+  
+    function login() {
+        user.value.isAuthenticated = true
+    }
+
+    function logout() {
+        user.value.isAuthenticated = false
+    }
+
+    return { user, login, logout }
+
+});
