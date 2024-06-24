@@ -5,14 +5,14 @@ export const useCharacters = defineStore('characters', () => {
 
   const uri = import.meta.env.VITE_API_ENDPOINT_CHARACTERS
 
-  const listaCharacters = ref([])
+  const listCharacters = ref([])
 
-  const getlistaCharacters = computed(() => listaCharacters.value)
+  const getlistCharacters = computed(() => listCharacters.value)
 
-  async function setlistaCharacters() {
+  async function setlistCharacters() {
     const response = await fetch(uri)
-    listaCharacters.value = await response.json()
+    listCharacters.value = await response.json()
   }
 
-  return { listaCharacters, getlistaCharacters, setlistaCharacters}
+  return { listCharacters, getlistCharacters, setlistCharacters}
 })
