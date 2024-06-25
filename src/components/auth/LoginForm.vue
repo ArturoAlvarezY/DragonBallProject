@@ -24,7 +24,7 @@ function login() {
 </script>
 
 <template>
-    <div>
+    <div id="flexForm">
         <form @submit.prevent="login">
             <label for="username">username</label>
             <input type="text" name="username" id="username" v-model="username">
@@ -36,3 +36,9 @@ function login() {
         </form>
     </div>
 </template>
+<style lang="scss" scoped>
+
+#flexForm {
+display: flex;
+}
+</style>
