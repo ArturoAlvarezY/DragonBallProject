@@ -1,30 +1,29 @@
+import { ref } from "vue"
 import Character from "../../models/Character.js"
-import Repository from "../../models/Repository.js"
+import Planets from "../../models/Planets.js"
 
 export default class DragonBallService {
     #repo
 
     constructor(repository) {
-        this.#repo = Repository
+        this.#repo = repository
     }
 
-    async getCharacter() {
-        const data = await this.#repo.getById('Character')
-
-        const character = data.DragonBall.item.map((item) => {
-            return new Character(item.name, item.img, item.id, item.ki, item.race, item.description)
+    async getCharacters(limit) {
+        let data = ref()
+        if (limit) { data = await this.#repo.get(limit) }
+        else { data = await this.#repo.get(8) }
+        const characters = data.items.map((item) => {
+            return new Character(item.id, item.name, item.maxKi, item.race, item.description, item.image)
         })
-
-        return character
+        return characters
     }
 
     async getPlanets() {
-        const data = await this.#repo.getById('Planets')
-
-        const planets = data.DragonBall.item.map((item) => {
-            return new Planet(item.name, item.img, item.id, item.isDestroyed)
+        const data = await this.#repo.get(20)
+        const planets = data.items.map((item) => {
+            return new Planets(item.id, item.name, item.isDestroyed, item.description, item.image)
         })
-
         return planets
     }
 }

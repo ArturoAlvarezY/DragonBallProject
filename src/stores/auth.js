@@ -1,6 +1,7 @@
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
 
+<<<<<<< HEAD
 export const useAuthStore = defineStore('auth', () => {
     
     const user = ref(
@@ -23,3 +24,24 @@ export const useAuthStore = defineStore('auth', () => {
     return { user, login, logout }
 
 });
+=======
+
+export const useAuthStore = defineStore('auth', () => {
+
+    const userLogin = ref(
+        {
+            username: '',
+            isAuthenticated: false
+        }
+    )
+
+    const user = ref(
+        [{
+            username: 'admin',
+            password: 'admin',
+        }]
+    )
+
+    return { user, userLogin}
+})
+>>>>>>> dev
