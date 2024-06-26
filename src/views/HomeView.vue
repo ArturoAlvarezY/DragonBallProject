@@ -19,7 +19,7 @@ const listCharacters = ref([])
 const router = useRouter()
 
 async function setCharacters(page = 1) {
-  const characters = await apiCharacters.getCharacters(8,page)
+  const characters = await apiCharacters.getCharacters(8, page)
   listCharacters.value = characters
 }
 
@@ -29,25 +29,19 @@ setCharacters(props.page ? props.page : 1)
 </script>
 
 <template>
-  <div v-if="listCharacters" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+  <div v-if="listCharacters" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-4">
     <div v-for="character in listCharacters" :key="character.id" class="col">
       <CardCharacter :name=character.name :maxKi=character.maxKi :race=character.race :description=character.description
         :image=character.image />
     </div>
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <!--  <a class="">Previous</a> -->
-        </li>
-        <!-- <li class="page-item"><a class="" href="#"></a></li> -->
-        <li class="page-item"><a class="https://dragonball-api.com/api/characters?limit=8" href="#1">Home</a></li>
-        <li class="page-item"><a class="https://dragonball-api.com/api/characters?page=12&limit=8" href="#1">Home</a>
-        </li>
-        <li class="page-item">
-          <a class="https://dragonball-api.com/api/planets?limit=20" href="#2">Planets</a>
-        </li>
-      </ul>
-    </nav>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
 </template>
