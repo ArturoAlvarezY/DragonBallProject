@@ -19,12 +19,12 @@ const listCharacters = ref([])
 const router = useRouter()
 
 async function setCharacters(page = 1) {
-  const characters = await apiCharacters.getCharacters(page)
+  const characters = await apiCharacters.getCharacters(8,page)
   listCharacters.value = characters
 }
 
+setCharacters(props.page ? props.page : 1)
 
-setCharacters(props.page)
 
 </script>
 

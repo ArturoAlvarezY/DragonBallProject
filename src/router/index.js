@@ -13,8 +13,9 @@ const router = createRouter({
     {
       path: '/:page',
       name: 'home',
-      component: HomeView, 
-      props: true
+      component: HomeView,
+      props: true,
+      alias: '/'
     },
     {
       path: '/planets',

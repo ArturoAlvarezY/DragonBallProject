@@ -9,10 +9,10 @@ export default class Repository {
     return this.uri
   }
 
-  async get(page) {
+  async get(limit,page) {
     try {
       let uri = this.uri
-      uri += "?limit=8"
+      uri += `?limit=${limit}`
       if (page) uri += `&page=${page}`
       const response = await fetch(uri)
       const data = await response.json()
