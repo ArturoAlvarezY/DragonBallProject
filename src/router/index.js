@@ -1,16 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-<<<<<<< HEAD
-import LoginView from '@/views/LoginView.vue'
-import { useAuthStore } from '@/stores/auth'
-=======
 import LoginView from '@/views/guards/LoginView.vue'
 import { useAuthStore } from '@/stores/auth'
 import Planets from '@/views/Planets.vue'
 import Favorite from '@/views/guards/Favorite.vue'
 import RegisterView from '@/views/guards/RegisterView.vue'
 import LogoutView from '@/views/guards/LogoutView.vue'
->>>>>>> dev
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,22 +40,6 @@ const router = createRouter({
     {
       path: '/favorite',
       name: 'favorite',
-<<<<<<< HEAD
-      component: () => import('../views/Favorite.vue'),
-      meta: { requiresAuth: true }
-    },
-
-  ]
-})
-
-router.beforeEach((to, from) => {
-
-  const store = useAuthStore()
-
-  if (to.meta.requiresAuth && !store.user.isAuthenticated) {
-    return { name: 'login' }
-  }
-=======
       component: Favorite,
       meta: { requiresAuth: true }
     },
@@ -81,7 +60,6 @@ router.beforeEach( (to, from) => {
     return { name: 'login' }
   }
 
->>>>>>> dev
 })
 
 export default router
