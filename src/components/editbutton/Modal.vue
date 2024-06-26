@@ -18,7 +18,7 @@
  });
 
 };
-export function closeEditModal() {
+   export function closeEditModal() {
     const closeModalButton = document.getElementById('close-modal');
     const EditModal = document.getElementById('edit-modal');
 
