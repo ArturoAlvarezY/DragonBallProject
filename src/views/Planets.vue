@@ -24,6 +24,19 @@ setPlanets()
       <CardPlanet :name=planet.name :isDestroyed=planet.isDestroyed :description=planet.description
         :img=planet.img />
     </div>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="https://dragonball-api.com/api/characters?limit=8">Home</a>
+    </li>
+    <li class="page-item"><a class="https://dragonball-api.com/api/characters?limit=8" href="#1">Home</a></li>
+    <li class="page-item"><a class="https://dragonball-api.com/api/planets?limit=20" href="#2">Planets</a></li>
+    <!-- <li class="page-item"><a class="" href="#"></a></li> -->
+    <li class="page-item">
+      <!-- <a class="favoritos" href="#3">Favorite</a> -->
+    </li>
+  </ul>
+</nav>
   </div>
 </template>
 

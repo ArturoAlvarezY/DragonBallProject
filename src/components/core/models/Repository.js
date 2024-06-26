@@ -1,3 +1,5 @@
+import router from "@/router"
+
 export default class Repository {
   constructor(uri) {
     this.uri = uri
@@ -7,14 +9,16 @@ export default class Repository {
     return this.uri
   }
 
-  async get(limit) {
+  async get(page) {
     try {
-      if (limit) {this.uri += `?limit=${limit}`}
-      const response = await fetch(this.uri)
+      let uri = this.uri
+      uri += "?limit=8"
+      if (page) uri += `&page=${page}`
+      const response = await fetch(uri)
       const data = await response.json()
       return data
     } catch (error) {
-      throw new Error('Error loading DragonBall API')
+      throw new Error('Error loading API')
     }
   }
 }

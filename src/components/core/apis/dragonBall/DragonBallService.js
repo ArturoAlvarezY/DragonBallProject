@@ -9,10 +9,9 @@ export default class DragonBallService {
         this.#repo = repository
     }
 
-    async getCharacters(limit) {
+    async getCharacters(page) {
         let data = ref()
-        if (limit) { data = await this.#repo.get(limit) }
-        else { data = await this.#repo.get(8) }
+        data = await this.#repo.get(page) 
         const characters = data.items.map((item) => {
             return new Character(item.id, item.name, item.maxKi, item.race, item.description, item.image)
         })

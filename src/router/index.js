@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, routeLocationKey } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/guards/LoginView.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -11,9 +11,10 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/:page',
       name: 'home',
-      component: HomeView
+      component: HomeView, 
+      props: true
     },
     {
       path: '/planets',
@@ -41,7 +42,7 @@ const router = createRouter({
       name: 'logout',
       component: LogoutView,
       meta: { requiresAuth: true }
-    }
+    },
   ]
 })
 
