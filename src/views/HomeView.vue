@@ -6,7 +6,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 defineProps({
-    page2: {
+    page: {
         type: String,
         required: false
     },
