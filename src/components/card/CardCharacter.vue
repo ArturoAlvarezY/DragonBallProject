@@ -1,4 +1,5 @@
 <script setup>
+import Fav from '../favButton/Fav.vue';
 defineProps({
     name: {
         type: String,
@@ -21,11 +22,14 @@ defineProps({
         required: true
     }
 });
+
 </script>
 
 <template>
+  
     <div class="card bg-card position-relative">
         <div class="side">
+            <Fav />
             <img :src="image" class="card-img image-size-back" :alt=name>
             <div class="card-img-overlay">
                 <img :src="image" class="image-size" :alt=name>
@@ -38,8 +42,10 @@ defineProps({
             </div>
         </div>
         <div class="side back">
+            <Fav />
             <div class="position-absolute p-3">
                 <p class="font-monospace">{{ description }}</p>
+               
             </div>
         </div>
     </div>
