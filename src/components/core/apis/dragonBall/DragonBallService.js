@@ -9,17 +9,17 @@ export default class DragonBallService {
         this.#repo = repository
     }
 
-    async getCharacters(limit,page) {
+    async getCharacters(limit, page) {
         let data = ref()
-        data = await this.#repo.get(limit,page) 
+        data = await this.#repo.get(limit, page)
         const characters = data.items.map((item) => {
             return new Character(item.id, item.name, item.maxKi, item.race, item.description, item.image)
         })
-        return characters
+        return [characters, data.meta.totalPage, data.meta.currentPage]
     }
 
-    async getPlanets(limit,page) {
-        const data = await this.#repo.get(limit,page)
+    async getPlanets(limit, page) {
+        const data = await this.#repo.get(limit, page)
         const planets = data.items.map((item) => {
             return new Planets(item.id, item.name, item.isDestroyed, item.description, item.image)
         })
