@@ -9,7 +9,7 @@ const authStore = useAuthStore()
 <template>
   <nav class="navbar navbar-expand-md navbar-white bg-orange fixed-top">
     <div class="container-fluid">
-      <RouterLink to="/1" class="nav-link potta-one-regular">
+      <RouterLink to="/" class="nav-link potta-one-regular">
         <img src="@/assets/logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
         Dragon Boys
       </RouterLink>
@@ -24,7 +24,7 @@ const authStore = useAuthStore()
         </form>
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <RouterLink to="/1" class="nav-link">Home</RouterLink>
+            <RouterLink to="/" class="nav-link">Home</RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink to="/planets" class="nav-link">Planets</RouterLink>

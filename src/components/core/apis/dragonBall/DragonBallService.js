@@ -15,7 +15,7 @@ export default class DragonBallService {
         const characters = data.items.map((item) => {
             return new Character(item.id, item.name, item.maxKi, item.race, item.description, item.image)
         })
-        return [characters, data.meta.totalPage, data.meta.currentPage]
+        return [characters, data.meta.totalPages, data.meta.currentPage]
     }
 
     async getPlanets(limit, page) {
