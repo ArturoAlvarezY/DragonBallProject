@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+
 defineProps({
     name: {
         type: String,
@@ -21,16 +23,28 @@ defineProps({
         required: true
     }
 });
+
+const flip = ref("")
+
+function setflip(){
+    flip.value = "cardFlip"
+}
+
+function delflip(){
+    flip.value = ""
+}
+
+// <a class="btn btn-trasparent" href="#" role="button"><i class="bi bi-heart-fill"></i></a>   <i class="bi bi-heart"></i>
 </script>
 
 <template>
-    <div class="card bg-card position-relative">
+    <div class="card bg-card position-relative" :class="flip">
         <div class="side">
             <img :src="image" class="card-img image-size-back" :alt=name>
             <div class="card-img-overlay">
                 <img :src="image" class="image-size" :alt=name>
                 <div class="position-absolute bottom-0 start-0 p-3">
-                    <p class="m-0 p-0"><strong>Name:</strong> {{ name }}</p>
+                    <a class="m-0 p-0 btn btn-trasparent" @click="setflip"><strong>Name:</strong> {{ name }}</a>
                     <p class="m-0 p-0"><strong>Max Ki:</strong> {{ maxKi }}</p>
                     <p class="m-0 p-0"><strong>Raze:</strong> {{ race }}</p>
                     <p class="card-text" hidden>{{ description }}</p>
@@ -39,7 +53,7 @@ defineProps({
         </div>
         <div class="side back">
             <div class="position-absolute p-3">
-                <p class="font-monospace">{{ description }}</p>
+                <p class="font-monospace btn btn-trasparent" @click="delflip">{{ description }}</p>
             </div>
         </div>
     </div>
@@ -82,7 +96,7 @@ defineProps({
     transition: all 1s ease-in-out;
 }
 
-.card:hover {
+.cardFlip {
     transform: rotateY(180deg);
 }
 
