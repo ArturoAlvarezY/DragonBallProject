@@ -21,9 +21,6 @@ async function setCharacters(page) {
 
 setCharacters(1)
 
-async function setpage(page) {
-  setCharacters(page)
-}
 </script>
 
 <template>
@@ -36,13 +33,13 @@ async function setpage(page) {
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item" :class="{ disabled: currentPage == 1 }">
-        <button class="page-link" @click="setpage(1)">First</button>
+        <button class="page-link" @click="setCharacters(1)">First</button>
       </li>
-      <li class="page-item" :class="{ active: currentPage == 1 }"><button class="page-link" @click="setpage(currentPage == 1 ?  (currentPage != totalPages ? currentPage : currentPage - 2) : currentPage - 1)">{{ currentPage == 1 ?  (currentPage != totalPages ? currentPage : currentPage - 2) : (currentPage != totalPages ? currentPage - 1 : currentPage - 2) }}</button></li>
-      <li class="page-item" :class="{ active: currentPage == (currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1) }"><button class="page-link" @click="setpage(currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1)">{{ currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1 }}</button></li>
-      <li class="page-item" :class="{ active: currentPage == totalPages }"><button class="page-link" @click="setpage(currentPage != 1 ?  (currentPage != totalPages ? currentPage + 1 : currentPage) : currentPage + 2)">{{ currentPage != 1 ?  (currentPage != totalPages ? currentPage + 1 : currentPage) : currentPage + 2}}</button></li>
+      <li class="page-item" :class="{ active: currentPage == 1 }"><button class="page-link" @click="setCharacters(currentPage == 1 ?  (currentPage != totalPages ? currentPage : currentPage - 2) : currentPage - 1)">{{ currentPage == 1 ?  (currentPage != totalPages ? currentPage : currentPage - 2) : (currentPage != totalPages ? currentPage - 1 : currentPage - 2) }}</button></li>
+      <li class="page-item" :class="{ active: currentPage == (currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1) }"><button class="page-link" @click="setCharacters(currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1)">{{ currentPage != 1 ?  (currentPage != totalPages ? currentPage : currentPage - 1) : currentPage + 1 }}</button></li>
+      <li class="page-item" :class="{ active: currentPage == totalPages }"><button class="page-link" @click="setCharacters(currentPage != 1 ?  (currentPage != totalPages ? currentPage + 1 : currentPage) : currentPage + 2)">{{ currentPage != 1 ?  (currentPage != totalPages ? currentPage + 1 : currentPage) : currentPage + 2}}</button></li>
       <li class="page-item" :class="{ disabled: currentPage == totalPages }">
-        <button class="page-link" @click="setpage(totalPages)">Last</button>
+        <button class="page-link" @click="setCharacters(totalPages)">Last</button>
       </li>
     </ul>
   </nav>
