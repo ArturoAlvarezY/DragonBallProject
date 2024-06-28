@@ -44,7 +44,7 @@ function setflip(){
 <template>
     <div class="card bg-card position-relative" :class="flip">
         <div class="side">
-            <a class="btn btn-trasparent front" href="#" role="button"><i class="bi bi-heart"></i>{{ id }}</a>
+            <a class="btn btn-trasparent front" href="#" role="button"><i class="bi bi-heart"></i></a>
             <img :src="image" class="card-img image-size-back" :alt=name>
             <div class="card-img-overlay">
                 <img :src="image" class="image-size" :alt=name>
