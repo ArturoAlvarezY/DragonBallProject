@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 
 defineProps({
+    id: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -27,12 +31,12 @@ defineProps({
 const flip = ref("")
 
 function setflip(){
-    flip.value = "cardFlip"
+    if (flip.value == "")
+        flip.value = "cardFlip"
+    else
+        flip.value = ""
 }
 
-function delflip(){
-    flip.value = ""
-}
 
 // <a class="btn btn-trasparent" href="#" role="button"><i class="bi bi-heart-fill"></i></a>   <i class="bi bi-heart"></i>
 </script>
@@ -40,6 +44,7 @@ function delflip(){
 <template>
     <div class="card bg-card position-relative" :class="flip">
         <div class="side">
+            <a class="btn btn-trasparent front" href="#" role="button"><i class="bi bi-heart"></i>{{ id }}</a>
             <img :src="image" class="card-img image-size-back" :alt=name>
             <div class="card-img-overlay">
                 <img :src="image" class="image-size" :alt=name>
@@ -53,7 +58,7 @@ function delflip(){
         </div>
         <div class="side back">
             <div class="position-absolute p-3">
-                <p class="font-monospace btn btn-trasparent" @click="delflip">{{ description }}</p>
+                <p class="font-monospace btn btn-trasparent" @click="setflip">{{ description }}</p>
             </div>
         </div>
     </div>
@@ -111,5 +116,10 @@ function delflip(){
 
 .card .back {
     transform: rotateY(180deg);
+}
+
+.front  {
+    position: absolute;
+    z-index: 1000;
 }
 </style>
