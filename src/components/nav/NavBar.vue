@@ -1,9 +1,26 @@
 <script setup>
 import { useAuthStore } from '@/stores/auth';
 import { RouterLink } from 'vue-router';
+import { DragonBallRepository } from '../core/apis/dragonBall/DragonBallRepository.js';
+import { ref } from 'vue';
+import Repository from '../core/models/Repository.js';
 
 const authStore = useAuthStore()
 
+const uri = import.meta.env.VITE_API_ENDPOINT_CHARACTERS
+const repository2 = new Repository(uri)
+const repository = new DragonBallRepository(repository2)
+const searchTerm = ref("")
+
+const handleSearch = async (event) => {
+  event.preventDefault()
+  try {
+    const result = await repository.fetchFromApi('name', searchTerm.value)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+}
 </script>
 
 <template>
@@ -18,8 +35,8 @@ const authStore = useAuthStore()
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <form class="d-flex invisible" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" role="search" @submit="handleSearch">
+          <input v-bind="searchTerm" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <ul class="navbar-nav me-auto mb-2 mb-md-0">

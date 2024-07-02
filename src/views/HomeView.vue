@@ -11,25 +11,19 @@ const apiCharacters = new DragonBallService(repository)
 const listCharacters = ref([])
 const totalPages = ref()
 const currentPage = ref()
-const searchQuery = ref('')
+const searchQuery = ref("")
 
-async function setCharacters(page, query = '') {
+async function setCharacters(page, query = "") {
   const data = await apiCharacters.getCharacters(8, page, query)
   listCharacters.value = data[0]
   totalPages.value = data[1]
   currentPage.value = data[2]
 }
 
-watch(searchQuery, () => {
-  setCharacters(currentPage.value, searchQuery.value)
-})
-
 setCharacters(1)
-
 </script>
 
 <template>
-  <input v-model="searchQuery" placeholder="Search Characters" />
   <div v-if="listCharacters" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-4">
     <div v-for="character in listCharacters" :key="character.id" class="col">
       <CardCharacter :name="character.name" :maxKi="character.maxKi" :race="character.race"
