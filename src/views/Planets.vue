@@ -10,7 +10,7 @@ const apiPlanets = new DragonBallService(repository)
 const listPlanets = ref([])
 
 async function setPlanets() {
-  const planets = await apiPlanets.getPlanets()
+  const planets = await apiPlanets.getPlanets(20,1)
   listPlanets.value = planets
 }
 

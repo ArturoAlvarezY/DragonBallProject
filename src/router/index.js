@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, routeLocationKey } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/guards/LoginView.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -41,7 +41,7 @@ const router = createRouter({
       name: 'logout',
       component: LogoutView,
       meta: { requiresAuth: true }
-    }
+    },
   ]
 })
 
