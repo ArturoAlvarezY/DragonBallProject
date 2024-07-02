@@ -1,8 +1,12 @@
 <script setup>
 import { ref } from 'vue';
+import { useCharacters } from '@/stores/CharactersStore'
 
-dev
-defineProps({
+const props = defineProps({
+    id: {
+        type: Number,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -22,27 +26,60 @@ defineProps({
     image: {
         type: String,
         required: true
+    },
+    favorite: {
+        type: Boolean,
+        required: true
     }
 });
 
 const flip = ref("")
+const listCharacters = useCharacters()
+const favoriteEstate = ref(props.favorite);
 
-function setflip(){
-    flip.value = "cardFlip"
+function setflip() {
+    if (flip.value == "")
+        flip.value = "cardFlip"
+    else
+        flip.value = ""
 }
 
-function delflip(){
-    flip.value = ""
+function setFavorite(id, name, maxKi, race, description, image) {
+    let temp = false
+    listCharacters.listCharacters.forEach(element => {
+        if (element.id == id) {
+            temp = true
+            //QUITARLO DE EL ARRAY
+        }
+    })
+    if (!temp) {
+        listCharacters.listCharacters.push({
+            id: id,
+            name: name,
+            maxKi: maxKi,
+            race: race,
+            description: description,
+            image: image,
+        })
+        favoriteEstate.value = false
+    }
 }
 
-// <a class="btn btn-trasparent" href="#" role="button"><i class="bi bi-heart-fill"></i></a>   <i class="bi bi-heart"></i>
+function isFavorite(fav) {
+    if (!fav)
+        return "bi-heart"
+    else
+        return "bi-heart-fill"
+}
+
 </script>
 
 <template>
     <div class="card bg-card position-relative" :class="flip">
->>>>>>> dev
         <div class="side">
-            <Fav />
+            <a class="btn btn-trasparent front" @click="setFavorite(id, name, maxKi, race, description, image)"
+                role="button"><i class="bi text-danger"
+                    :class="{ 'bi-heart-fill': favoriteEstate == true }, { 'bi-heart': favoriteEstate == false }"></i></a>
             <img :src="image" class="card-img image-size-back" :alt=name>
             <div class="card-img-overlay">
                 <img :src="image" class="image-size" :alt=name>
@@ -55,14 +92,8 @@ function delflip(){
             </div>
         </div>
         <div class="side back">
-            <Fav />
             <div class="position-absolute p-3">
-<<<<<<< HEAD
-                <p class="font-monospace">{{ description }}</p>
-               
-=======
-                <p class="font-monospace btn btn-trasparent" @click="delflip">{{ description }}</p>
->>>>>>> dev
+                <p class="font-monospace btn btn-trasparent" @click="setflip">{{ description }}</p>
             </div>
         </div>
     </div>
@@ -120,5 +151,10 @@ function delflip(){
 
 .card .back {
     transform: rotateY(180deg);
+}
+
+.front {
+    position: absolute;
+    z-index: 1000;
 }
 </style>
